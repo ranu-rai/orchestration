@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<runtimeconfig>
+  <contributedConfigs>
+    <config class="com.ataccama.dqc.streaming.config.KafkaContributor">
+      <kafkaConnections>
+        <kafkaConnection name="testEnvKafka" connectString="localhost:9092"/>
+      </kafkaConnections>
+    </config>
+    <config class="com.ataccama.one2.client.config.One2Contributor">
+      <one2Connections>
+        <one2Connection name="AtaccamaONEPSandbox16">
+          <auth password="crypted:AES:1I5NChR5PqOkXl86FriYwJNfN5aUAsmuDEw0wL3+J8KpIhu867S0l4ms5j8hx2L/" type="OpenID Connect" user="ranuk@emishaglobal.com">
+            <properties>
+              <authProperty name="openid-connect.token.url" value="https://one-43mfi.worker-01-use1.prod.ataccama.link/auth"/>
+              <authProperty name="openid-connect.realm" value="ataccamaone"/>
+              <authProperty name="openid-connect.client.id" value="one-desktop-public-client"/>
+            </properties>
+          </auth>
+          <dpm publicKey="{&quot;kty&quot;:&quot;EC&quot;,&quot;crv&quot;:&quot;P-256&quot;,&quot;kid&quot;:&quot;5UkVLkNJ2eV4GqtFrk098ULP-CKiEkbOFXlJYES9zks&quot;,&quot;x&quot;:&quot;GTdiDFcejMdlEFr6IVQNs97IVM0tDpwT2ZUKIbgl5Uk&quot;,&quot;y&quot;:&quot;vK4zlftQtsss5SorLkfdnmBsEJ6ja4ypA1TztXNqPAE&quot;,&quot;alg&quot;:&quot;ES256&quot;}" url="https://dpm-one-43mfi.worker-01-use1.prod.ataccama.link">
+            <grpc port="443" host="dpm-grpc-one-43mfi.worker-01-use1.prod.ataccama.link" tls="true"/>
+          </dpm>
+          <mmm apiUrl="https://one-43mfi.worker-01-use1.prod.ataccama.link/graphql" url="https://one-43mfi.worker-01-use1.prod.ataccama.link"/>
+        </one2Connection>
+      </one2Connections>
+    </config>
+  </contributedConfigs>
+  <pathVariables>
+    <pathVariable name="EXT_NEW" value="C:\Users\kumar\Downloads\Tools\ataccama-one-desktop-16.0.0.250130-13424-484c0d19-windows\Workspace\ws1\Workflow Tutorials\data\ext_new"/>
+    <pathVariable name="EWF_COMPONENTS" value="C:\Users\kumar\Downloads\Tools\ataccama-one-desktop-16.0.0.250130-13424-484c0d19-windows\Workspace\ws1\Workflow Tutorials\components"/>
+    <pathVariable name="EWF_DATA" value="C:\Users\kumar\Downloads\Tools\ataccama-one-desktop-16.0.0.250130-13424-484c0d19-windows\Workspace\ws1\Workflow Tutorials\data"/>
+    <pathVariable name="ONE_PLATFORM_DATA" value="C:\Users\kumar\Downloads\Tools\ataccama-one-desktop-16.0.0.250130-13424-484c0d19-windows\Workspace\ws1\ONE Platform Tutorials\data"/>
+  </pathVariables>
+  <parallelismLevel>1</parallelismLevel>
+</runtimeconfig>
