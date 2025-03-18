@@ -36,7 +36,7 @@
 						</listenerContext>
 					</contexts>
 				</listenerBean>
-				<listenerBean healthstateRefreshRate="60000" waitingRequestsWarningThreshold="1" keyStorePassword="crypted:AES:jlrJV2ZdPgF9K4zr35LfzlZPp3aQS4SsnxxWop8SI1s=" threadPoolTimeout="10000" healthStateRecoveryTimeout="300000" threads="5" servletOnly="false" ssl="true" maxWaitingRequests="10" backlog="50" port="443" keyPassword="crypted:AES:jlrJV2ZdPgF9K4zr35LfzlZPp3aQS4SsnxxWop8SI1s=" name="ssl" clientAuth="false">
+				<listenerBean healthstateRefreshRate="60000" waitingRequestsWarningThreshold="1" keyStorePassword="crypted:AES:jlrJV2ZdPgF9K4zr35LfzlZPp3aQS4SsnxxWop8SI1s=" threadPoolTimeout="10000" healthStateRecoveryTimeout="300000" keyStoreFile="c:/keystore" threads="5" servletOnly="false" ssl="true" maxWaitingRequests="10" backlog="50" port="443" keyPassword="crypted:AES:jlrJV2ZdPgF9K4zr35LfzlZPp3aQS4SsnxxWop8SI1s=" name="ssl" clientAuth="false">
 					<contexts>
 						<listenerContext path="/" htmlErrorPages="false">
 							<filterChains>
@@ -75,11 +75,10 @@
 		</component>
 		<component logLevel="2" httpListener="all" disabled="false" maxParallelWorkflows="0" showRuntimeConfiguration="false" class="com.ataccama.adt.web.WorkflowServerComponent" resourcesFolder="../workflows/resources">
 			<sources>
-				<sourceConfigBean path="../Files/workflows" id="WF1"/>
-				<sourceConfigBean path="../Files/workflows" id="WF2"/>
+				<sourceConfigBean path="../workflows/workflow" id="WF1"/>
+				<sourceConfigBean path="../workflows/workflow" id="WF2"/>
 			</sources>
 			<stateStorageProvider class="com.ataccama.adt.runtime.state.storage.FileStateStorageProvider"/>
 		</component>
-		<component configFile="./logging.xml" disabled="false" class="com.ataccama.dqc.web.logging.LoggingComponent"/>
 	</serverComponents>
 </server>
