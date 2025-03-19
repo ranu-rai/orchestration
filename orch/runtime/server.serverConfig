@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<server version="16.0.0.241211-9066-0d4f6e45">
+	<port>7777</port>
+	<runtimeConfiguration>runtime.runtimeConfig</runtimeConfiguration>
+	<serverComponents>
+		<component dataSourceRefreshRate="60" pathVariableRefreshRate="60" disabled="false" class="com.ataccama.dqc.server.services.HealthStateProviders"/>
+		<component disabled="false" class="com.ataccama.dqc.web.health.HealthStateWebConsole"/>
+		<component listeners="all" disabled="false" cacheTemplate="true" class="com.ataccama.dqc.web.console.WebConsoleComponent">
+			<customMenuCategories/>
+			<customMenuItems/>
+		</component>
+		<component disabled="false" class="com.ataccama.dqc.web.HttpDispatcher">
+			<filters/>
+			<listeners>
+				<listenerBean healthstateRefreshRate="60000" maxWaitingRequests="10" backlog="50" waitingRequestsWarningThreshold="1" port="8888" threadPoolTimeout="10000" healthStateRecoveryTimeout="3600000" name="default" threads="10" servletOnly="false" ssl="false" clientAuth="false">
+					<contexts>
+						<listenerContext path="/" htmlErrorPages="false">
+							<filterChains>
+								<filterChain path="/*" filters="accessLog, loggingFilter, securityResponseHeaders, securityFilter">
+									<conditions/>
+								</filterChain>
+							</filterChains>
+							<securityFilter class="com.ataccama.server.http.security.def.NoSecurity"/>
+						</listenerContext>
+					</contexts>
+				</listenerBean>
+				<listenerBean healthstateRefreshRate="60000" maxWaitingRequests="10" backlog="50" waitingRequestsWarningThreshold="1" port="8887" threadPoolTimeout="10000" healthStateRecoveryTimeout="300000" name="console" threads="5" servletOnly="false" ssl="false" clientAuth="false">
+					<contexts>
+						<listenerContext path="/" htmlErrorPages="false">
+							<filterChains>
+								<filterChain path="/*" filters="accessLog, securityResponseHeaders, securityFilter">
+									<conditions/>
+								</filterChain>
+							</filterChains>
+							<securityFilter class="com.ataccama.server.http.security.def.NoSecurity"/>
+						</listenerContext>
+					</contexts>
+				</listenerBean>
+				<listenerBean healthstateRefreshRate="60000" waitingRequestsWarningThreshold="1" keyStorePassword="crypted:AES:jlrJV2ZdPgF9K4zr35LfzlZPp3aQS4SsnxxWop8SI1s=" threadPoolTimeout="10000" healthStateRecoveryTimeout="300000" threads="5" servletOnly="false" ssl="true" maxWaitingRequests="10" backlog="50" port="443" keyPassword="crypted:AES:jlrJV2ZdPgF9K4zr35LfzlZPp3aQS4SsnxxWop8SI1s=" name="ssl" clientAuth="false">
+					<contexts>
+						<listenerContext path="/" htmlErrorPages="false">
+							<filterChains>
+								<filterChain path="/*" filters="accessLog, loggingFilter, securityResponseHeaders, securityFilter">
+									<conditions/>
+								</filterChain>
+							</filterChains>
+							<securityFilter class="com.ataccama.server.http.security.def.NoSecurity"/>
+						</listenerContext>
+					</contexts>
+				</listenerBean>
+			</listeners>
+			<servletFilters>
+				<servletFilter level="INFO" appendClientInfo="false" name="accessLog" class="com.ataccama.dqc.web.filters.RequestResponseTimeLogger">
+					<headers>
+						<header>soapAction</header>
+						<header>host</header>
+					</headers>
+				</servletFilter>
+				<servletFilter maskingString="*****" logFile="../logs/request.log" name="loggingFilter" maxResponseLogSize="10000" appendLog="false" class="com.ataccama.dqc.web.filters.LoggingFilter" maxRequestLogSize="10000">
+					<maskedHeaders/>
+				</servletFilter>
+				<servletFilter name="securityResponseHeaders" class="com.ataccama.server.http.filters.ResponseHeadersFilter">
+					<headers>
+						<header name="Referrer-Policy" value="strict-origin"/>
+						<header name="Content-Security-Policy" value="default-src &#39;self&#39;; style-src &#39;self&#39; &#39;unsafe-inline&#39;; connect-src &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-eval&#39; &#39;sha256-LUuXJZWv+iqAoiEz+MR1HORFiNthxhltt8do2N6NPik=&#39; &#39;sha256-/mbPbpM/5kbI0U1nQQaSnj/7MnXyUvjKw/L8Idja3aM=&#39; &#39;sha256-p84Nz3iaL6DfouAdT0PYnH2faQMd0JnPZwbTGcMKruU=&#39; &#39;sha256-x7+pkV1goejarh4RQD5Y42rGzOTq5Eua3ewQ05/JuII=&#39; &#39;sha256-XOzDrAubQd8HYnvuIR+gLUroMdKPJpC815MJZALgsbY=&#39; &#39;sha256-+31JvG/At7T/70nPaNMoqrnWyK9HknCKNU6QFh4BfHs=&#39; &#39;sha256-N6Gf+VKujlKSRXY8GlBcZRkA19x/8JPUwXo1usl61ZA=&#39;; img-src &#39;self&#39; data:"/>
+						<header name="X-Permitted-Cross-Domain-Policies" value="none"/>
+					</headers>
+				</servletFilter>
+			</servletFilters>
+		</component>
+		<component listeners="all" disabled="false" class="com.ataccama.dqc.online.OnlineServicesComponent">
+			<serviceLookupFolders>
+				<configFolder>../services</configFolder>
+			</serviceLookupFolders>
+		</component>
+		<component logLevel="2" httpListener="all" disabled="false" maxParallelWorkflows="0" showRuntimeConfiguration="false" class="com.ataccama.adt.web.WorkflowServerComponent" resourcesFolder="../workflows/resources">
+			<sources>
+				<sourceConfigBean path="../Files/workflows" id="WF1"/>
+				<sourceConfigBean path="../Files/workflows" id="WF2"/>
+			</sources>
+			<stateStorageProvider class="com.ataccama.adt.runtime.state.storage.FileStateStorageProvider"/>
+		</component>
+		<component configFile="./logging.xml" disabled="false" class="com.ataccama.dqc.web.logging.LoggingComponent"/>
+	</serverComponents>
+</server>

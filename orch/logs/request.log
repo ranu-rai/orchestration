@@ -1,0 +1,56 @@
+Request started at:18.03.2025 14:39:01.0898
+Client: 127.0.0.1:49179
+Request headers:
+Date:Tue, 18 Mar 2025 09:09:01 GMT
+Referrer-Policy:strict-origin
+Content-Security-Policy:default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; script-src 'self' 'unsafe-eval' 'sha256-LUuXJZWv+iqAoiEz+MR1HORFiNthxhltt8do2N6NPik=' 'sha256-/mbPbpM/5kbI0U1nQQaSnj/7MnXyUvjKw/L8Idja3aM=' 'sha256-p84Nz3iaL6DfouAdT0PYnH2faQMd0JnPZwbTGcMKruU=' 'sha256-x7+pkV1goejarh4RQD5Y42rGzOTq5Eua3ewQ05/JuII=' 'sha256-XOzDrAubQd8HYnvuIR+gLUroMdKPJpC815MJZALgsbY=' 'sha256-+31JvG/At7T/70nPaNMoqrnWyK9HknCKNU6QFh4BfHs=' 'sha256-N6Gf+VKujlKSRXY8GlBcZRkA19x/8JPUwXo1usl61ZA='; img-src 'self' data:
+X-Permitted-Cross-Domain-Policies:none
+X-Content-Type-Options:nosniff
+X-XSS-Protection:0
+Cache-Control:no-cache, no-store, max-age=0, must-revalidate
+Pragma:no-cache
+Expires:0
+X-Frame-Options:DENY
+Content length: -1
+Host: 127.0.0.1(port:49179)
+Path: 
+Method: GET
+Query string: comp=list
+Real number of received bytes: 0
+------------ Request body start -----------
+
+
+------------ Request body end -----------
+
+Response headers:
+Response status: 0
+Request finished at:18.03.2025 14:39:01.0991
+
+Request started at:18.03.2025 14:39:15.0981
+Client: 127.0.0.1:49180
+Request headers:
+Date:Tue, 18 Mar 2025 09:09:15 GMT
+Referrer-Policy:strict-origin
+Content-Security-Policy:default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; script-src 'self' 'unsafe-eval' 'sha256-LUuXJZWv+iqAoiEz+MR1HORFiNthxhltt8do2N6NPik=' 'sha256-/mbPbpM/5kbI0U1nQQaSnj/7MnXyUvjKw/L8Idja3aM=' 'sha256-p84Nz3iaL6DfouAdT0PYnH2faQMd0JnPZwbTGcMKruU=' 'sha256-x7+pkV1goejarh4RQD5Y42rGzOTq5Eua3ewQ05/JuII=' 'sha256-XOzDrAubQd8HYnvuIR+gLUroMdKPJpC815MJZALgsbY=' 'sha256-+31JvG/At7T/70nPaNMoqrnWyK9HknCKNU6QFh4BfHs=' 'sha256-N6Gf+VKujlKSRXY8GlBcZRkA19x/8JPUwXo1usl61ZA='; img-src 'self' data:
+X-Permitted-Cross-Domain-Policies:none
+X-Content-Type-Options:nosniff
+X-XSS-Protection:0
+Cache-Control:no-cache, no-store, max-age=0, must-revalidate
+Pragma:no-cache
+Expires:0
+X-Frame-Options:DENY
+Content length: 0
+Host: 127.0.0.1(port:49180)
+Path: 
+Method: PUT
+Query string: restype=share
+Real number of received bytes: 0
+------------ Request body start -----------
+
+
+------------ Request body end -----------
+
+Response headers:
+Response status: 0
+Request finished at:18.03.2025 14:39:15.0992
+
