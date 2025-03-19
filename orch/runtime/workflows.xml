@@ -1,5 +1,4 @@
-<!--
-<sourceConfigBean path="orch/Files/workflows" id="WF"/>
-<sourceConfigBean path="" id=""/>
-<sourceConfigBean path="" id=""/>
--->
+<source>
+<path>orch/Files/workflows</path>
+<id>WF1</id>
+</source>
